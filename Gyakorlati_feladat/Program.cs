@@ -17,7 +17,7 @@ namespace Gyakorlati_feladat
         static void hutoszekreny()
         {
 
-            Console.WriteLine("Véletlen tömbfeltöltés");
+            Console.WriteLine("Véletlen tömbfeltöltés: ");
             for (int i = 0; i < huto_elemek.Length; i++)
             {
                 huto_elemek[i] = "";
@@ -36,7 +36,7 @@ namespace Gyakorlati_feladat
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine();
+            
 
         }
 
@@ -180,31 +180,9 @@ namespace Gyakorlati_feladat
             }
             Console.WriteLine();
 
-            int sorszam = 0;
-            int min = -999999;
-            bool nagyobbe = true;
-            for (int i = 0; i < szamok.Length; i++)
-            {
-                if (nagyobbe)
-                {
-                    if (szamok[i] > min)
-                    {
-                        min = szamok[i];
-                        szamok_leghosszabb_novekvo[sorszam] = min;
-                        sorszam++;
-                    }
-                    else
-                    {
-                        nagyobbe = false;
-                    }
 
-                }
+            
                 
-            }
-            foreach (var item in szamok_leghosszabb_novekvo)
-            {
-                Console.WriteLine(item);
-            }
 
 
 
