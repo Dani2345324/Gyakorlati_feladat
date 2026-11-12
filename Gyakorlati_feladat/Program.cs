@@ -1,4 +1,6 @@
-﻿namespace Gyakorlati_feladat
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Gyakorlati_feladat
 {
     internal class Program
     {
@@ -110,7 +112,10 @@
 
         static int[] szamok = new int[10];
 
-        static void FeltoltEgyediekkel(int min = -10, int max = 10)
+        
+
+        static int[] szamok_novekvo = new int[10];
+        static void FeltoltEgyediekkel(int min = -100, int max = 100)
         {
 
 
@@ -128,13 +133,37 @@
                 }
             }
             foreach (var item in szamok)
-
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine();
         }
         static void LeghosszabbNovekvo()
         {
+            
+            int count = 0;
+            
+            for (int j = 0; j < szamok.Length; j++)
+            {
+                count = 0;
+                for (int i = 0; i < szamok.Length; i++)
+                {
+                   if (szamok[j] > szamok[i]){
+                        count++;
+                   } 
+                }
+                
+                szamok_novekvo[count] = szamok[j];
+                
+
+                
+
+            }
+            foreach (var item in szamok_novekvo)
+            {
+                Console.WriteLine(item);
+            }
+
 
         }
 
@@ -145,6 +174,7 @@
             //Keresetel();
             //maganhangzosak();
             FeltoltEgyediekkel();
+            LeghosszabbNovekvo();
 
 
 
