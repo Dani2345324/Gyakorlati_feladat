@@ -54,7 +54,13 @@ namespace Gyakorlati_feladat
                     count++;
                 }
             }
-
+            for (int i = 0; i < seged.Length; i++)
+            {
+                if (seged[i] == null)
+                {
+                    seged[i] = "";
+                }
+            }
             for (int i = 0; i < huto_elemek.Length; i++)
             {
 
@@ -87,6 +93,8 @@ namespace Gyakorlati_feladat
         }
         static void maganhangzosak()
         {
+            Console.WriteLine();
+            Console.Write("Magánhangzóval kezdődő ételek: ");
             string maganhangzok = "aáeéiíoóöőuúüű";
 
             for (int i = 0; i < seged.Length; i++)
@@ -112,13 +120,14 @@ namespace Gyakorlati_feladat
 
         static int[] szamok = new int[10];
 
-        
+        static int[] szamok_leghosszabb_novekvo = new int[10];
 
         static int[] szamok_novekvo = new int[10];
-        static void FeltoltEgyediekkel(int min = -100, int max = 100)
+        static void FeltoltEgyediekkel(int min = -50, int max = 100)
         {
-
-
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Számos feladat:");
             for (int count = 0; count < szamok.Length;)
             {
                 int random = r.Next(min, max + 1);
@@ -163,18 +172,73 @@ namespace Gyakorlati_feladat
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine();
+
+            int sorszam = 0;
+            int min = -999999;
+            bool nagyobbe = true;
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (nagyobbe)
+                {
+                    if (szamok[i] > min)
+                    {
+                        min = szamok[i];
+                        szamok_leghosszabb_novekvo[sorszam] = min;
+                        sorszam++;
+                    }
+                    else
+                    {
+                        nagyobbe = false;
+                    }
+
+                }
+                
+            }
+            foreach (var item in szamok_leghosszabb_novekvo)
+            {
+                Console.WriteLine(item);
+            }
 
 
+
+        }
+        static void AtlagAlattiDuplazas()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Átlag alatti számok duplázása");
+            double atlag = 0;
+            int sum = 0;
+            foreach (var item in szamok)
+            {
+                sum += item;
+            }
+            atlag = sum / szamok.Length;
+            Console.WriteLine(atlag);
+            Console.WriteLine();
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i] < atlag)
+                {
+                    szamok[i] = szamok[i]*2;
+                }
+                
+            }
+            foreach (var item in szamok)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         static void Main(string[] args)
         {
-            //hutoszekreny();
-            //Takarit();
-            //Keresetel();
-            //maganhangzosak();
+            hutoszekreny();
+            Takarit();
+            Keresetel();
+            maganhangzosak();
             FeltoltEgyediekkel();
             LeghosszabbNovekvo();
+            AtlagAlattiDuplazas();
 
 
 
