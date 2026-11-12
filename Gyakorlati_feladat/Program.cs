@@ -17,7 +17,7 @@ namespace Gyakorlati_feladat
         static void hutoszekreny()
         {
 
-
+            Console.WriteLine("Véletlen tömbfeltöltés");
             for (int i = 0; i < huto_elemek.Length; i++)
             {
                 huto_elemek[i] = "";
@@ -32,11 +32,17 @@ namespace Gyakorlati_feladat
                 }
 
             }
+            foreach (var item in huto_elemek)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
 
         }
 
         static void Takarit()
         {
+            Console.WriteLine("Takarítás: ");
             int count = 0;
             for (int i = 0; i < huto_elemek.Length; i++)
             {
