@@ -4,6 +4,7 @@ namespace Gyakorlati_feladat
 {
     internal class Program
     {
+        
         static string[] huto_elemek = new string[10];
 
         static string[] seged = new string[10];
